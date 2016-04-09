@@ -1,13 +1,13 @@
 function init_page(strPage)
 {
-    if(strPage === "main")
+    if(strPage === "story")
     {
-        init_page_main();
+        init_page_story();
     }
 }
 
 
-function init_page_main()
+function init_page_story()
 {
     init_menubar();
     init_editor();
@@ -37,10 +37,4 @@ function init_editor()
     objEditor.initialize();
 
     elDivBody.appendChild(objEditor.container());
-}
-
-
-function init_editor_toolbar()
-{
-
 }
