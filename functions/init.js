@@ -19,6 +19,7 @@ function init_editor()
     var elDivBody = document.getElementById("body-content");
 
     var elDivEditorWrapper = document.createElement("div");
+    elDivEditorWrapper.id = "editor-wrapper";
     elDivBody.appendChild(elDivEditorWrapper);
 
     var elDivEditorToolbar = document.createElement("div");
@@ -32,6 +33,6 @@ function init_editor()
     elDivEditorToolbar.appendChild(elButtonBold);
     elDivEditorToolbar.appendChild(elButtonItalic);
 
-    var objTextEditor = new Quill('editor-wrapper');
-    objTextEditor.addModule('toolbar', {container: '#editor-toolbar'});
+    var objTextEditor = new Quill(elDivEditorWrapper);
+    objTextEditor.addModule('toolbar', {container: elDivEditorToolbar});
 }
