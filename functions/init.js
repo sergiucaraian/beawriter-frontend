@@ -9,7 +9,18 @@ function init_page(strPage)
 
 function init_page_main()
 {
+    init_toolbar();
     init_editor();
+}
+
+
+function init_toolbar()
+{
+    var elDivToolbarWrapper = document.getElementById("body-content");
+
+    var objToolbar = new Toolbar();
+
+    elDivToolbarWrapper.appendChild(objToolbar.container());
 }
 
 
@@ -18,9 +29,11 @@ function init_editor()
     // Create editor wrapper
     var elDivBody = document.getElementById("body-content");
 
+
     var elDivEditorWrapper = document.createElement("div");
     elDivEditorWrapper.id = "editor-wrapper";
     elDivBody.appendChild(elDivEditorWrapper);
+
 
     var elDivEditorToolbar = document.createElement("div");
     elDivEditorToolbar.id = "editor-toolbar";
@@ -33,6 +46,17 @@ function init_editor()
     elDivEditorToolbar.appendChild(elButtonBold);
     elDivEditorToolbar.appendChild(elButtonItalic);
 
-    var objTextEditor = new Quill(elDivEditorWrapper);
+    elDivEditorWrapper.appendChild(elDivEditorToolbar);
+
+
+    var elDivEditorContents = document.createElement("div");
+    elDivEditorContents.id = "editor-contents";
+    elDivEditorWrapper.appendChild(elDivEditorContents);
+
+    var config = {
+        theme: 'snow'
+    };
+
+    var objTextEditor = new Quill(elDivEditorContents, config);
     objTextEditor.addModule('toolbar', {container: elDivEditorToolbar});
 }
