@@ -9,18 +9,18 @@ function init_page(strPage)
 
 function init_page_main()
 {
-    init_toolbar();
+    init_menubar();
     init_editor();
 }
 
 
-function init_toolbar()
+function init_menubar()
 {
-    var elDivToolbarWrapper = document.getElementById("body-content");
+    var elDivBody = document.getElementById("body-content");
 
-    var objToolbar = new Toolbar();
+    var objMenubar = new Menubar();
 
-    elDivToolbarWrapper.appendChild(objToolbar.container());
+    elDivBody.appendChild(objMenubar.container());
 }
 
 

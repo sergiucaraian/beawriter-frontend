@@ -1,10 +1,10 @@
-function Toolbar()
+function Menubar()
 {
     // Aici e constructorul
     this.elDivContainer = document.createElement("div");
 }
 
-Toolbar.prototype = {
+Menubar.prototype = {
     // Aici ai variabile
     elDivContainer: null,
 
