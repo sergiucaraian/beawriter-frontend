@@ -1,4 +1,4 @@
-functions init_page(strPage)
+function init_page(strPage)
 {
     if(strPage === "main")
     {
@@ -16,7 +16,7 @@ function init_page_main()
 function init_editor()
 {
     // Create editor wrapper
-    var elDivBody = document.getElementByID("body-content");
+    var elDivBody = document.getElementById("body-content");
 
     var elDivEditorWrapper = document.createElement("div");
     elDivBody.appendChild(elDivEditorWrapper);
