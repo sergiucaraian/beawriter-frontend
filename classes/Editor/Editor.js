@@ -1,9 +1,7 @@
 function Editor(objConfig)
 {
     this.objConfig = objConfig;
-};
-
-
+}
 Editor.prototype = {
 
     elDivContainer: null,

@@ -4,6 +4,17 @@ function init_page(strPage)
     {
         init_page_story();
     }
+	
+	if(strPage === "main")
+	{
+		init_page_main();
+	}
+}
+
+function init_page_main()
+{
+	init_menubar();
+	init_maincontent();
 }
 
 
@@ -21,6 +32,15 @@ function init_menubar()
     var objMenubar = new Menubar();
 
     elDivBody.appendChild(objMenubar.container());
+}
+
+function init_maincontent()
+{
+	var elDivBody = document.getElementById("body-content");
+	
+	var objMainContent = new MainContent();
+	
+	elDivBody.appendChild(objMainContent.container());
 }
 
 
