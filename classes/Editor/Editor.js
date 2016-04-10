@@ -108,11 +108,19 @@ Editor.prototype = {
         elSpanBold.title = "Bold";
         elSpanGroup.appendChild(elSpanBold);
 
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
+        elSpanGroup.appendChild(elSeparator);
+
         var elSpanItalic = document.createElement("span");
         elSpanItalic.classList.add("ql-format-button");
         elSpanItalic.classList.add("ql-italic");
         elSpanItalic.title = "Italic";
         elSpanGroup.appendChild(elSpanItalic);
+
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
+        elSpanGroup.appendChild(elSeparator);
 
         var elSpanUnderline = document.createElement("span");
         elSpanUnderline.classList.add("ql-format-button");
@@ -120,11 +128,18 @@ Editor.prototype = {
         elSpanUnderline.title = "Underline";
         elSpanGroup.appendChild(elSpanUnderline);
 
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
+        elSpanGroup.appendChild(elSeparator);
+
         var elSpanStrikethrough = document.createElement("span");
         elSpanStrikethrough.classList.add("ql-format-button");
         elSpanStrikethrough.classList.add("ql-strike");
         elSpanStrikethrough.title = "Strikethrough";
         elSpanGroup.appendChild(elSpanStrikethrough);
+
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
 
 
         // Text elements
@@ -138,33 +153,47 @@ Editor.prototype = {
         elSpanList.title = "List";
         elSpanGroup.appendChild(elSpanList);
 
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
+        elSpanGroup.appendChild(elSeparator);
+
         var elSpanBullet = document.createElement("span");
         elSpanBullet.classList.add("ql-format-button");
-        elSpanBullet.classList.add("ql-button");
+        elSpanBullet.classList.add("ql-bullet");
         elSpanBullet.title = "Bullet";
         elSpanGroup.appendChild(elSpanBullet);
 
+        var elSeparator = document.createElement("span");
+        elSeparator.classList.add("ql-format-separator");
+        elSpanGroup.appendChild(elSeparator);
+
 
         // Text Alignment
-        var elSelectAlign = document.createElement("align");
+        var elSelectAlign = document.createElement("select");
         elSelectAlign.classList.add("ql-align");
         elSelectAlign.title = "Text Alignment";
 
         var elOptionLeft = document.createElement("option");
         elOptionLeft.value = "left";
         elOptionLeft.label = "Left";
+        elSelectAlign.appendChild(elOptionLeft);
 
         var elOptionCenter = document.createElement("option");
         elOptionCenter.value = "center";
         elOptionCenter.label = "Center";
+        elSelectAlign.appendChild(elOptionCenter);
 
         var elOptionRight = document.createElement("option");
         elOptionRight.value = "right";
         elOptionRight.label = "Right";
+        elSelectAlign.appendChild(elOptionRight);
 
         var elOptionJustify = document.createElement("option");
         elOptionJustify.value = "justify";
         elOptionJustify.label = "Justify";
+        elSelectAlign.appendChild(elOptionJustify);
+
+        elSpanGroup.appendChild(elSelectAlign);
 
 
         // Links
