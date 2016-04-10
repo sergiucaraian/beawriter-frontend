@@ -73,7 +73,7 @@ MainContent.prototype = {
 		form.appendChild(document.createElement("br"));
 		
 		var anchor = document.createElement("a");
-		anchor.href = "#";
+		anchor.href = "register.html";
 		var textNode2 = document.createTextNode("Sign up now");
 		anchor.appendChild(textNode2);
 		form.appendChild(anchor);

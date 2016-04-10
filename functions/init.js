@@ -9,6 +9,17 @@ function init_page(strPage)
 	{
 		init_page_main();
 	}
+
+    if(strPage === "login")
+    {
+        init_page_login();
+    }
+
+    if(strPage === "register")
+    {
+        init_page_register();
+    }
+
 }
 
 function init_page_main()
@@ -22,6 +33,19 @@ function init_page_story()
 {
     init_menubar();
     init_editor();
+}
+
+function init_page_login()
+{
+    init_menubar();
+    init_loginform();
+}
+
+
+function init_page_register()
+{
+    init_menubar();
+    init_regform();
 }
 
 
@@ -58,3 +82,23 @@ function init_editor()
 
     elDivBody.appendChild(objEditor.container());
 }
+
+function init_loginform()
+{
+    var elDivBody = document.getElementById("body-content");
+
+    var objMainContent = new Registration();
+
+    elDivBody.appendChild(objMainContent.container_log_in());
+}
+
+function init_regform()
+{
+    var elDivBody = document.getElementById("body-content");
+
+    var objMainContent = new Registration();
+
+    elDivBody.appendChild(objMainContent.container_registration());
+}
+
+

@@ -56,7 +56,7 @@ Menubar.prototype = {
             "Top Writers": "#" ,
             "Contests": "#",
             "Stories": "story.html",
-            "LogIn": "#"
+            "LogIn": "login.html"
         };
 
 		for(var strPageName in objPages)

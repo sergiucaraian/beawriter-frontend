@@ -1,0 +1,76 @@
+
+.registration {
+    text-align: center;
+}
+
+.registration >img {
+    width: 7%;
+    height: 12%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.registration h1 {
+    color: green;
+    font-family: "Book Antiqua";
+}
+
+.reg-form {
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+
+    max-width: 350px;
+    background: whitesmoke;
+    padding: 30px 30px 20px 30px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.reg-form label {
+    display: block;
+    margin: 0px 0px 5px;
+}
+.reg-form label>span {
+    float: left;
+    margin-top: 10px;
+    color: #555555;
+    font-size: 14px;
+    font-family: Aharoni;
+}
+.reg-form input[type="text"], .reg-form input[type="email"] {
+    color: #555;
+    height: 30px;
+    line-height:15px;
+    width: 100%;
+    padding: 0px 0px 0px 10px;
+    margin-top: 2px;
+    border: 1px solid deepskyblue;
+    background: none;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    font: normal 14px/14px Arial, Helvetica, sans-serif;
+}
+
+.reg-form input[type="text"]:focus, .reg-form input[type="email"]:hover {
+    border: 1px solid greenyellow;
+}
+
+.reg-form .button {
+    background-color: #9DC45F;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #949494;
+    width: 100%;
+}
+.reg-form .button:hover {
+    background-color:#80A24A;
+}
