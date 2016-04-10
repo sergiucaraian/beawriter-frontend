@@ -197,10 +197,16 @@ Editor.prototype = {
 
 
         // Links
+        var elSpanGroup = document.createElement("span");
+        elSpanGroup.classList.add("ql-format-group");
+        this.elDivToolbar.appendChild(elSpanGroup);
+
         var elSpanLink = document.createElement("span");
         elSpanLink.classList.add("ql-format-button");
         elSpanLink.classList.add("ql-link");
         elSpanLink.title = "Link";
+
+        elSpanGroup.appendChild(elSpanLink);
     },
 
 
