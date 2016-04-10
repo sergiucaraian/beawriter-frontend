@@ -2,7 +2,12 @@
 {
     margin: 0 auto;
     min-width: 320px;
-    width: 900px;
+    width: 80%;
+    max-width: 1500px;
+    border: 1px rgb(200,200,200) solid;
+    margin-top: 50px;
+    max-height: 900px;
+    height: 70%;
 }
 
 .editor-content-wrapper
