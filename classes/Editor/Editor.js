@@ -39,6 +39,7 @@ Editor.prototype = {
     generate_toolbar: function()
     {
         this.elDivToolbar = document.createElement("div");
+        this.elDivToolbar.classList.add("editor-toolbar");
 
         var elSpanGroup = document.createElement("span");
         elSpanGroup.classList.add("ql-format-group");

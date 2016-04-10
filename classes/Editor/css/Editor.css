@@ -8,9 +8,15 @@
     margin-top: 50px;
     max-height: 900px;
     height: 70%;
+    background-color: #FFFFFF;
 }
 
 .editor-content-wrapper
 {
-    background-color: #FFFFFF;
+}
+
+.editor-toolbar
+{
+    border-bottom: 1px rgb(200,200,200) solid;
+    padding: 8px;
 }
