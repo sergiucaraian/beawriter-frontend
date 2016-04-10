@@ -20,27 +20,27 @@ Menubar.prototype = {
     initialize: function()
     {
 		this.elDivHeader.classList.add("header");
-		
+
         this.elDivContainer = document.createElement("div");
 		this.elDivContainer.classList.add("container");
-		
+
 		this.elAnchorLogo = document.createElement("a");
 		this.elAnchorLogo.classList.add("home-logo");
 		this.setAnchorHref(this.elAnchorLogo, "main.html");
-		
+
 		this.addImage("../assets/pictures/home-logo.jpg");
-		
+
 		this.elUList = document.createElement("ul");
 		this.elUList.classList.add("menu");
-		
+
 		this.generateListElement(4);
-		
+
 		this.elDivHeader.appendChild(this.elDivContainer);
 		this.elDivContainer.appendChild(this.elAnchorLogo);
 		this.elDivContainer.appendChild(this.elUList);
-		
+
     },
-	
+
 	addImage: function(src)
 	{
 		var image = document.createElement("img");
@@ -49,32 +49,38 @@ Menubar.prototype = {
 		image.height = 40;
 		this.elAnchorLogo.appendChild(image);
 	},
-	
+
 	generateListElement: function(n)
 	{
-		var htmlPageNames = ["Top Writers","Contests","Stories","LogIn"];
-		var htmlPageAnchors = ["#","#","#","#"];
-		
-		for(var i = 0; i < n; i++) 
+        var objPages = {
+            "Top Writers": "#" ,
+            "Contests": "#",
+            "Stories": "story.html",
+            "LogIn": "#"
+        };
+
+		for(var strPageName in objPages)
 		{
-			var texNode = document.createTextNode(htmlPageNames[i]);
-			var li = document.createElement("li");
-			var anchor = document.createElement("a");
-			this.setAnchorHref(anchor,htmlPageAnchors[i]);
-			anchor.appendChild(texNode);
-			li.appendChild(anchor);
-			this.elUList.appendChild(li);
+            if(objPages.hasOwnProperty(strPageName))
+            {
+                var texNode = document.createTextNode(strPageName);
+                var li = document.createElement("li");
+                var anchor = document.createElement("a");
+                this.setAnchorHref(anchor,objPages[strPageName]);
+                anchor.appendChild(texNode);
+                li.appendChild(anchor);
+                this.elUList.appendChild(li);
+            }
 		}
-		
 	},
-	
+
 	setAnchorHref: function(anchor, href)
 	{
 		anchor.href = href;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 };

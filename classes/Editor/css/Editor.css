@@ -1,0 +1,11 @@
+.editor-container
+{
+    margin: 0 auto;
+    min-width: 320px;
+    width: 900px;
+}
+
+.editor-content-wrapper
+{
+    background-color: #FFFFFF;
+}
