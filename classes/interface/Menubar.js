@@ -53,8 +53,7 @@ Menubar.prototype = {
 	generateListElement: function(n)
 	{
         var objPages = {
-            "Top Writers": "#" ,
-            "Contests": "#",
+            "Dashboard": "dashboard.html",
             "Stories": "story.html",
             "LogIn": "login.html"
         };
