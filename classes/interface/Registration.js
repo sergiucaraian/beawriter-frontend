@@ -13,11 +13,11 @@ Registration.prototype = {
 
     LabelNameArrayReg : ["Username*", "Password*", "Email*", "First Name*", "Last Name*", "Ocupation"],
     IdNameArrayReg : ["username","password","email","first_name","last_name", "ocupation"],
-    TypeArrayReg : ["text","text","email","text","text", "text"],
+    TypeArrayReg : ["text","password","email","text","text", "text"],
 
     LabelNameArrayLog : ["Username","Password"],
     IdNameArrayLog : ["username","password"],
-    TypeArrayLog : ["text","text"],
+    TypeArrayLog : ["text","password"],
 
 
     container_log_in: function()
@@ -66,7 +66,7 @@ Registration.prototype = {
             elInput.id = IdArray[i];
             elInput.name = IdArray[i];
             elInput.type = TypeArray[i];
-            elInput.required = true;
+            //elInput.required = true;
 			elInput.classList.add(IdArray[i]);
            
             elLabel.appendChild(elSpan);

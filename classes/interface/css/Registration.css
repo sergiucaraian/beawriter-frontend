@@ -41,7 +41,7 @@
     font-size: 14px;
     font-family: Aharoni;
 }
-.reg-form input[type="text"], .reg-form input[type="email"] {
+.reg-form input[type="text"], .reg-form input[type="email"], .reg-form input[type="password"] {
     color: #555;
     height: 30px;
     line-height:15px;
@@ -56,7 +56,7 @@
     font: normal 14px/14px Arial, Helvetica, sans-serif;
 }
 
-.reg-form input[type="text"]:focus, .reg-form input[type="email"]:hover {
+.reg-form input[type="text"]:focus, .reg-form input[type="email"]:hover, .reg-form input[type="password"]:focus {
     border: 1px solid greenyellow;
 }
 
