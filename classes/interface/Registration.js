@@ -11,9 +11,9 @@ function Registration()
 
 Registration.prototype = {
 
-    LabelNameArrayReg : ["Username","First Name","Last Name","Email","Password"],
-    IdNameArrayReg : ["username","firstname","lastname","email","password"],
-    TypeArrayReg : ["text","text","text","email","text"],
+    LabelNameArrayReg : ["Username*", "Password*", "Email*", "First Name*", "Last Name*", "Ocupation"],
+    IdNameArrayReg : ["username","password","email","first_name","last_name", "ocupation"],
+    TypeArrayReg : ["text","text","email","text","text", "text"],
 
     LabelNameArrayLog : ["Username","Password"],
     IdNameArrayLog : ["username","password"],
@@ -67,21 +67,24 @@ Registration.prototype = {
             elInput.name = IdArray[i];
             elInput.type = TypeArray[i];
             elInput.required = true;
-            
+			elInput.classList.add(IdArray[i]);
+           
             elLabel.appendChild(elSpan);
             elLabel.appendChild(elInput);
             form.appendChild(elLabel);
         }
-
+	
         elLabel = document.createElement("label");
         elLabel.appendChild(document.createElement("br"));
+		textButton = document.createTextNode("Submit")
 
-        elInput = document.createElement("input");
-        elInput.type = "submit";
+        elInput = document.createElement("button");
         elInput.value = "Send";
-        elInput.classList.add("button");
-
+        elInput.id = "buttonReg";
+		elInput.type = "button";
+		elInput.appendChild(textButton);
         form.appendChild(elInput);
+		
         
     },
 
@@ -94,6 +97,9 @@ Registration.prototype = {
 
 
     combineEl : function(Ptext, Atext, href) {
+		
+		var elPRegMessage = document.createElement("p");
+		elPRegMessage.id = "registerMessage";
 
         var elP = document.createElement("p");
         this.setText(elP, Ptext);
@@ -105,9 +111,13 @@ Registration.prototype = {
         this.elDivContainer.appendChild(this.elH1);
         this.elDivContainer.appendChild(this.elImgLogo);
         this.elDivContainer.appendChild(this.elFormReg);
+		this.elDivContainer.appendChild(elPRegMessage);
         this.elDivContainer.appendChild(elP);
         this.elDivContainer.appendChild(elAnchor);
+		
     }
+	
+	
 
 };
 

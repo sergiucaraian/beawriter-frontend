@@ -7,9 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc851743-5e00-41ec-9829-3ccc2cf7fdda" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/interface/MainContent.js" afterPath="$PROJECT_DIR$/classes/interface/MainContent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/interface/Menubar.js" afterPath="$PROJECT_DIR$/classes/interface/Menubar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/init.js" afterPath="$PROJECT_DIR$/functions/init.js" />
     </list>
     <ignored path="beawriter-frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -298,7 +295,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/1460299551.layoutit/layoutit" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="C:\Program Files\nodejs\node" />
@@ -382,16 +379,16 @@
       <option name="presentableId" value="Default" />
       <updated>1460227094782</updated>
       <workItem from="1460227100694" duration="4445000" />
-      <workItem from="1460289409497" duration="4625000" />
+      <workItem from="1460289409497" duration="6703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9070000" />
+    <option name="totallyTimeSpent" value="11148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="0" width="1370" height="744" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17134416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

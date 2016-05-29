@@ -26,6 +26,7 @@ function init_page_main()
 {
 	init_menubar();
 	init_maincontent();
+	alert(createJSONObject("Auth.authenticate", "{username : alex}"));
 }
 
 
@@ -56,6 +57,7 @@ function init_menubar()
     var objMenubar = new Menubar();
 
     elDivBody.appendChild(objMenubar.container());
+	
 }
 
 function init_maincontent()
@@ -99,6 +101,9 @@ function init_regform()
     var objMainContent = new Registration();
 
     elDivBody.appendChild(objMainContent.container_registration());
+	
+	registerUser();
+	
 }
 
 
