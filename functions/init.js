@@ -41,7 +41,10 @@ function init_page_main()
 function init_page_story()
 {
     init_menubar();
+<<<<<<< HEAD
     init_story_stats();
+=======
+>>>>>>> e200cd7623060dce64480078e47cd9d9c5fd350e
     init_title_input();
     init_editor();
 	addReviews(1);

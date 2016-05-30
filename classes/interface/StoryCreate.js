@@ -23,6 +23,7 @@ StoryCreate.prototype = {
     {
         var elSpanPageTitle = document.createElement("span");
         elSpanPageTitle.innerHTML = "Create a new story";
+		elSpanPageTitle.id = "spanPageTitle";
         this.elDivContainer.appendChild(elSpanPageTitle);
 
         var elDivWrapper = document.createElement("div");
