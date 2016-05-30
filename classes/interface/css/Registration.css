@@ -74,3 +74,8 @@
 .reg-form .button:hover {
     background-color:#80A24A;
 }
+
+#registerMessage {
+	color : red;
+	font-family : "Aharoni";
+}
