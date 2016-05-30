@@ -59,6 +59,7 @@ Editor.prototype = {
                             makeRequest(
                                 function(mxResponse2)
                                 {
+                                    console.log("SDADASDASDASDASDAD");
                                     console.log(mxResponse2);
                                     self.bRequestInProgress = false;
                                 },
@@ -69,7 +70,7 @@ Editor.prototype = {
                                     "content":
                                     {
                                         "title": self.elInputTitle.value,
-                                        "body": self.objEditor.getHTML()
+                                        "content": "schimba cu asta"//self.objEditor.getHTML()
                                     }
                                 }
                             );
@@ -92,6 +93,24 @@ Editor.prototype = {
         this.elInputTitle.value = this.objStory["title"];
 
         this.objEditor.setHTML(this.objStory["content"]);
+    },
+
+
+    updateStoryStats: function()
+    {
+        if(this.bStatsRequestInProgress)
+            return;
+
+        this.bStatsRequestInProgress = true;
+
+        /*makeRequest(
+            function(mxResponse)
+            {
+
+            },
+            "StoryStatsService",
+            {}
+        )*/
     },
 
 

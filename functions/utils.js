@@ -116,7 +116,7 @@ function addReviews(story_id) {
 	var containerDiv = document.getElementById("container-div");
 
 
-		makeRequest(
+		/*makeRequest(
                     function(mxResponse)
                     {
 						for (var i = 0; i < mxResponse.length; i++)
@@ -173,5 +173,5 @@ function addReviews(story_id) {
                     "FeedbackService.readFeedbackResponse",
                     "POST",
                     story_id
-                );
+                );*/
 }

@@ -40,7 +40,8 @@ function init_page_main()
 
 function init_page_story()
 {
-    init_menubar();""]
+    init_menubar();
+    init_story_stats();
     init_title_input();
     init_editor();
 	addReviews(1);
@@ -145,12 +146,13 @@ function init_regform()
     elDivBody.appendChild(objMainContent.container_registration());
 
 	registerUser();
-
 }
 
 function init_title_input()
 {
     var elDivBody = document.getElementById("body-content");
+
+    var elDivWrapper = document.createElement("div");
 
     var elDiv = document.createElement("div");
     elDiv.classList.add("form-group", "editor-title-input-wrapper");
@@ -165,5 +167,37 @@ function init_title_input()
     elInput.type = "text";
     elDiv.appendChild(elInput);
 
-    elDivBody.appendChild(elDiv);
+    elDivWrapper.appendChild(elDiv);
+    elDivBody.appendChild(elDivWrapper);
+}
+
+function init_story_stats()
+{
+    var elDivBody = document.getElementById("body-content");
+
+    var elDivWrapper = document.createElement("div");
+
+    var elDiv = document.createElement("div");
+
+    var elSpan = document.createElement("span");
+    elSpan.classList.add("input-group-addon");
+    elSpan.innerHTML = "Points";
+    elDiv.appendChild(elSpan);
+
+    var elInput = document.createElement("input");
+    elInput.classList.add("editor-title-input-field", "form-control");
+    elInput.type = "text";
+    elInput.disabled = true;
+    elDiv.appendChild(elInput);
+
+    elDivWrapper.appendChild(elDiv);
+
+    var elDivMessagesWrapper = document.createElement("div");
+
+    var elSpanMessages = document.createElement("span");
+    elSpanMessages.innerHTML = "No messages yet";
+    elDivMessagesWrapper.appendChild(elSpanMessages);
+    elDivWrapper.appendChild(elDivMessagesWrapper);
+
+    elDivBody.appendChild(elDivWrapper);
 }

@@ -48,7 +48,7 @@ Dashboard.prototype = {
                     "StoryService.read",
                     "POST",
                     {
-                        //"user_id": "@me"
+                        "user_id": "@me"
                     }
                 );
 
