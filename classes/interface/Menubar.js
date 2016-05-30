@@ -1,11 +1,11 @@
 function Menubar()
 {
-    // Aici e constructorul
-    this.elDivHeader = document.createElement("div");
+    this.elDivContainer = document.createElement("div");
+    this.elDivContainer.classList.add("menubar", "container")
 }
 
-Menubar.prototype = {
-    // Aici ai variabile
+Menubar.prototype =
+{
     elDivContainer: null,
     elAnchorLogo: null,
 	elUList: null,
@@ -14,17 +14,12 @@ Menubar.prototype = {
     container: function()
     {
 		this.initialize();
-        return this.elDivHeader;
+        return this.elDivContainer;
     },
 
     initialize: function()
     {
-		this.elDivHeader.classList.add("header");
-
-        this.elDivContainer = document.createElement("div");
-		this.elDivContainer.classList.add("container");
-
-		this.elAnchorLogo = document.createElement("a");
+        this.elAnchorLogo = document.createElement("a");
 		this.elAnchorLogo.classList.add("home-logo");
 		this.setAnchorHref(this.elAnchorLogo, "main.html");
 
@@ -35,10 +30,8 @@ Menubar.prototype = {
 
 		this.generateListElement(4);
 
-		this.elDivHeader.appendChild(this.elDivContainer);
 		this.elDivContainer.appendChild(this.elAnchorLogo);
 		this.elDivContainer.appendChild(this.elUList);
-
     },
 
 	addImage: function(src)
@@ -77,9 +70,4 @@ Menubar.prototype = {
 	{
 		anchor.href = href;
 	}
-
-
-
-
-
 };

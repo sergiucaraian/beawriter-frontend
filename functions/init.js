@@ -20,6 +20,10 @@ function init_page(strPage)
         init_page_register();
     }
 
+    if(strPage === "dashboard")
+    {
+        init_page_dashboard();
+    }
 }
 
 function init_page_main()
@@ -49,22 +53,33 @@ function init_page_register()
 }
 
 
+function init_page_dashboard()
+{
+    init_menubar();
+    init_dashboard_content();
+}
+
+
 function init_menubar()
 {
     var elDivBody = document.getElementById("body-content");
-
     var objMenubar = new Menubar();
-
     elDivBody.appendChild(objMenubar.container());
-
 }
+
+
+function init_dashboard_content()
+{
+    var elDivBody = document.getElementById("body-content");
+    var objDashboard = new Dashboard();
+    elDivBody.appendChild(objDashboard.container());
+}
+
 
 function init_maincontent()
 {
 	var elDivBody = document.getElementById("body-content");
-
 	var objMainContent = new MainContent();
-
 	elDivBody.appendChild(objMainContent.container());
 }
 
