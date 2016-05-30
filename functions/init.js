@@ -40,7 +40,7 @@ function init_page_main()
 
 function init_page_story()
 {
-    init_menubar();""]
+    init_menubar();
     init_title_input();
     init_editor();
 	addReviews(1);

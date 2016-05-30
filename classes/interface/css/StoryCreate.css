@@ -1,0 +1,21 @@
+#make-story {
+	border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #949494;
+	margin-top: 3%;
+	background-color: grey;
+	
+}
+
+.storycreate {
+	text-align: center;
+	float : none;
+}
+
+#spanPageTitle {
+	font-size : 40px;
+}
