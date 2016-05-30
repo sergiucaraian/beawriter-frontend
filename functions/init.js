@@ -79,9 +79,13 @@ function init_dashboard_content()
 
 function init_maincontent()
 {
+	if (document.getElementById("LogIn") == null)
+		window.location.assign("dashboard.html");
 	var elDivBody = document.getElementById("body-content");
 	var objMainContent = new MainContent();
 	elDivBody.appendChild(objMainContent.container());
+	loginUser();
+		
 }
 
 

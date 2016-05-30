@@ -66,7 +66,7 @@ function loginUser()
 						} else {
 							setCookie("user_hash", mxResponse.hash, 5);
 							setCookie("user_id", mxResponse, 5);
-							window.location.assign("main.html");
+							window.location.assign("dashboard.html");
 						}
                     },
                     "AuthService.authenticate",

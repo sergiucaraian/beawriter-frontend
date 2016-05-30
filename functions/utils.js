@@ -47,6 +47,12 @@ function getCookie(cname) {
     return "";
 }
 
+function removeAllCookies() {
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++)
+	setCookie(cookies[i].split("=")[0], "", -1);
+}
+
 function checkCookie(cname) {
     var cook = getCookie(cname);
     if (cook != "") {
@@ -74,20 +80,21 @@ function setLogOut(elem) {
         {
             if(true)
             {
-                makeRequest(
-                    function(mxResponse)
-                    {
+                //makeRequest(
+                  //  function(mxResponse)
+                    //{
 							setCookie("user_hash", "");
 							elem.innerHTML = "LogIn";
 							elem.setAttribute("href");
 							elem.href = "login.html";
 							elem.href = "LogIn";
+							removeAllCookies();
 							elem.removeEventListener("click", eventFunc, true);
-                    },
-                    "AuthService.authenticate",
-                    "POST",
-                    ""
-                );
+                 //   },
+                   // "AuthService.authenticate",
+                   // "POST",
+                   // ""
+                //);
             }
         }
     )
