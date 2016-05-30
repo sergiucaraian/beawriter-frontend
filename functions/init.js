@@ -65,6 +65,7 @@ function init_menubar()
     var elDivBody = document.getElementById("body-content");
     var objMenubar = new Menubar();
     elDivBody.appendChild(objMenubar.container());
+    checkUserStatus();
 }
 
 
@@ -106,6 +107,8 @@ function init_loginform()
     var objMainContent = new Registration();
 
     elDivBody.appendChild(objMainContent.container_log_in());
+
+	loginUser();
 }
 
 function init_regform()

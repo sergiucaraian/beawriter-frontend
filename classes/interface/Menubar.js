@@ -58,6 +58,7 @@ Menubar.prototype =
                 var texNode = document.createTextNode(strPageName);
                 var li = document.createElement("li");
                 var anchor = document.createElement("a");
+				anchor.id = strPageName;
                 this.setAnchorHref(anchor,objPages[strPageName]);
                 anchor.appendChild(texNode);
                 li.appendChild(anchor);
