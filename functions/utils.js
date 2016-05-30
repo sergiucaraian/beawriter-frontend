@@ -3,6 +3,7 @@ function makeRequest(fnCallback, serviceName, requestType, content)
 	var xhr = new XMLHttpRequest();
 	var url = "http://188.166.0.172:8090/beaw/apirpc";
 	var json = createJSONRequestObject(serviceName, content);
+	xhr.withCredentials = true;
 
 	xhr.onreadystatechange = function()
 	{
@@ -70,7 +71,7 @@ function setLogOut(elem) {
 	elem.addEventListener(
         "click",
         eventFunc = function()
-        {	
+        {
             if(true)
             {
                 makeRequest(
@@ -88,7 +89,6 @@ function setLogOut(elem) {
                     ""
                 );
             }
-        } 
+        }
     )
 }
-
