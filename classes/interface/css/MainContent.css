@@ -199,5 +199,9 @@ form button:hover {
     color: orangered;
 }
 
+#registerMessage {
+	color : red;
+}
+
 
 /* Slide feature */

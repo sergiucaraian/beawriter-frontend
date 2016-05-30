@@ -52,19 +52,27 @@ MainContent.prototype = {
 	
 	createForm: function(form)
 	{
+		form.id = "register-form";
+		
 		var input_text = document.createElement("input");
 		input_text.type = "text";
 		input_text.placeholder = "Username";
+		input_text.id = "username";
 		form.appendChild(input_text);
 		
 		var input_password = document.createElement("input");
 		input_password.type = "password";
 		input_password.placeholder = "Password";
+		input_password.id = "password";
 		form.appendChild(input_password);
 		
+		var pMessage = document.createElement("p");
+		pMessage.id = "registerMessage";
+		form.appendChild(pMessage);
+		
 		var button = document.createElement("button");
-		button.type = "submit";
-		button.id = "login-button";
+		button.type = "button";
+		button.id = "buttonReg";
 		var textNode1 = document.createTextNode("Log In");
 		button.appendChild(textNode1);
 		form.appendChild(button);
