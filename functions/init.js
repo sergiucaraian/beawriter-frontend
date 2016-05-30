@@ -24,6 +24,11 @@ function init_page(strPage)
     {
         init_page_dashboard();
     }
+
+    if(strPage === "storycreate")
+    {
+        init_page_storycreate();
+    }
 }
 
 function init_page_main()
@@ -60,12 +65,26 @@ function init_page_dashboard()
 }
 
 
+function init_page_storycreate()
+{
+    init_menubar();
+    init_storycreate_content();
+}
+
+
 function init_menubar()
 {
     var elDivBody = document.getElementById("body-content");
     var objMenubar = new Menubar();
     elDivBody.appendChild(objMenubar.container());
     checkUserStatus();
+}
+
+function init_storycreate_content()
+{
+    var elDivBody = document.getElementById("body-content");
+    var objStoryCreate = new StoryCreate();
+    elDivBody.appendChild(objStoryCreate.container());
 }
 
 
@@ -85,7 +104,7 @@ function init_maincontent()
 	var objMainContent = new MainContent();
 	elDivBody.appendChild(objMainContent.container());
 	loginUser();
-		
+
 }
 
 

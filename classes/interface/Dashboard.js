@@ -109,6 +109,19 @@ Dashboard.prototype = {
         elSpanLevelValue.innerHTML = this.objUserStats["xp_level"];
         elDivHeader.appendChild(elSpanLevelValue);
 
+        var elButtonEditStory = document.createElement("button");
+        elButtonEditStory.innerHTML = "Create story"
+
+        elButtonEditStory.addEventListener(
+            "click",
+            function()
+            {
+                var nIndx = window.location.href.indexOf("dashboard");
+                window.location.href = window.location.href.substring(0,nIndx) + "storycreate.html";
+            }
+        );
+        elDivHeader.appendChild(elButtonEditStory);
+
         this.elDivContainer.appendChild(elDivHeader);
 
         this.bGeneratedHeader = true;
