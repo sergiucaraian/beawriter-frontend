@@ -11,8 +11,13 @@ Dashboard.prototype = {
 	elDivContent: null,
 
     objUser: null,
-    arrStories: null,
+    arrStories: [],
+    arrStoriesStats: [],
 
+    bFetchedUser: false,
+    bFetchedUserStats: false,
+    bStartedToRenderStoryTable: false,
+    bFetchedStories: false,
 
     container: function()
     {
@@ -26,47 +31,100 @@ Dashboard.prototype = {
         var self = this;
 
         // Make requests
-        makeRequest(
-            function(mxResponse)
-            {
-                self.arrStories = mxResponse;
-            },
-            "StoryService.read",
-            "POST",
-            {
-            }
-        );
 
         makeRequest(
             function(mxResponse)
             {
+                makeRequest(
+                    function(mxResponse2)
+                    {
+                        self.arrStories = mxResponse2;
+                        console.log(mxResponse2);
+                        self.bFetchedStories = true;
+
+                        // FilterStories
+                        self.generateStoriesTable();
+                    },
+                    "StoryService.read",
+                    "POST",
+                    {
+                        //"user_id": "@me"
+                    }
+                );
+
                 self.objUser = mxResponse;
+                console.log(mxResponse);
+                self.bFetchedUser = true;
                 self.generateHeader();
             },
             "UserService.readById",
             "POST",
             {
+                "user_id": "@me"
             }
         );
 
-        this.arrStories = [1];
-
-        this.generateHeader();
-        this.generateStoriesTable();
+        makeRequest(
+            function(mxResponse)
+            {
+                self.objUserStats = mxResponse;
+                console.log(mxResponse);
+                self.bFetchedUserStats = true;
+                self.generateHeader();
+            },
+            "UserStatsService.readById",
+            "POST",
+            {
+                "user_id": "@me"
+            }
+        )
     },
 
 
     generateHeader: function()
     {
+        if(!this.bFetchedUser || !this.bFetchedUserStats)
+            return;
+
         var elDivHeader = document.createElement("div");
         elDivHeader.classList.add("dashboard-header");
 
+        var elSpanName = document.createElement("span");
+        elSpanName.innerHTML = this.objUser["name"];
+        elDivHeader.appendChild(elSpanName);
+
+        var elSpanPointsLabel = document.createElement("span");
+        elSpanPointsLabel.innerHTML = "Points: ";
+        elDivHeader.appendChild(elSpanPointsLabel);
+
+        var elSpanPointsValue = document.createElement("span");
+        elSpanPointsValue.innerHTML = this.objUserStats["num_of_points"];
+        elDivHeader.appendChild(elSpanPointsValue);
+
+        var elSpanLevelLabel = document.createElement("span");
+        elSpanLevelLabel.innerHTML = "Level: ";
+        elDivHeader.appendChild(elSpanLevelLabel);
+
+        var elSpanLevelValue = document.createElement("span");
+        elSpanLevelValue.innerHTML = this.objUserStats["xp_level"];
+        elDivHeader.appendChild(elSpanLevelValue);
+
         this.elDivContainer.appendChild(elDivHeader);
+
+        this.bGeneratedHeader = true;
+        this.generateStoriesTable()
     },
 
 
     generateStoriesTable: function()
     {
+        var self =  this;
+
+        if(!this.bGeneratedHeader || !this.bFetchedStories || this.bStartedToRenderStoryTable)
+            return;
+
+        this.bStartedToRenderStoryTable = true;
+
         var elDivTableWrapper = document.createElement("div");
         elDivTableWrapper.classList.add("dashboard-table-stories-wrapper");
 
@@ -75,8 +133,22 @@ Dashboard.prototype = {
 
         for(var i=0; i<this.arrStories.length; i++)
         {
-            var elTrStory = this.generateStoryRow(i);
-            elTableStories.appendChild(elTrStory);
+            (function(i) {
+            makeRequest(
+                function(mxResponse)
+                {
+                    self.arrStoriesStats[i] = mxResponse;
+                    console.log(mxResponse);
+                    var elTrStory = self.generateStoryRow(i);
+                    elTableStories.appendChild(elTrStory);
+                },
+                "StoryStatsService.readById",
+                "POST",
+                {
+                    "story_stats_id": self.arrStories[i]["story_stats_id"]
+                }
+            )
+            })(i);
         }
 
         elDivTableWrapper.appendChild(elTableStories);
@@ -86,13 +158,15 @@ Dashboard.prototype = {
 
     generateStoryRow: function(nStoryIndex)
     {
+        var self = this;
+
         var elTr = document.createElement("tr");
         var elTd = document.createElement("td");
 
         var elDivContent = document.createElement("div");
 
         var elSpanTitle = document.createElement("span");
-        elSpanTitle.innerHTML = "The title of the story";
+        elSpanTitle.innerHTML = this.arrStories[nStoryIndex]["title"];
         elDivContent.appendChild(elSpanTitle);
 
         var elSpanPointsLabel = document.createElement("span");
@@ -100,8 +174,16 @@ Dashboard.prototype = {
         elDivContent.appendChild(elSpanPointsLabel);
 
         var elSpanPointsValue = document.createElement("span");
-        elSpanPointsValue.innerHTML = 1523;
+        elSpanPointsValue.innerHTML = this.arrStoriesStats[nStoryIndex]["total_points"];
         elDivContent.appendChild(elSpanPointsValue);
+
+        var elSpanDificultyLabel = document.createElement("span");
+        elSpanDificultyLabel.innerHTML = "Dificulty:";
+        elDivContent.appendChild(elSpanDificultyLabel);
+
+        var elSpanDificultyValue = document.createElement("span");
+        elSpanDificultyValue.innerHTML = this.arrStoriesStats[nStoryIndex]["difficulty"];
+        elDivContent.appendChild(elSpanDificultyValue);
 
         var elSelectVisibility = document.createElement("select");
         var elOptionPublic = document.createElement("option");
@@ -113,12 +195,14 @@ Dashboard.prototype = {
         elDivContent.appendChild(elSelectVisibility);
 
         var elButtonEditStory = document.createElement("button");
+        elButtonEditStory.innerHTML = "Write this story."
+
         elButtonEditStory.addEventListener(
             "click",
             function()
             {
                 var nIndx = window.location.href.indexOf("dashboard");
-                window.location.href = window.location.href.substring(0,nIndx) + "story.html?id=100";
+                window.location.href = window.location.href.substring(0,nIndx) + "story.html?id=" + self.arrStories[nStoryIndex]["story_id"];
             }
         );
         elDivContent.appendChild(elButtonEditStory);
