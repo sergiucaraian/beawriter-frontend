@@ -40,7 +40,8 @@ function init_page_main()
 
 function init_page_story()
 {
-    init_menubar();
+    init_menubar();""]
+    init_title_input();
     init_editor();
 	addReviews(1);
 }
@@ -145,4 +146,24 @@ function init_regform()
 
 	registerUser();
 
+}
+
+function init_title_input()
+{
+    var elDivBody = document.getElementById("body-content");
+
+    var elDiv = document.createElement("div");
+    elDiv.classList.add("form-group", "editor-title-input-wrapper");
+
+    var elSpan = document.createElement("span");
+    elSpan.classList.add("input-group-addon");
+    elSpan.innerHTML = "Title";
+    elDiv.appendChild(elSpan);
+
+    var elInput = document.createElement("input");
+    elInput.classList.add("editor-title-input-field", "form-control");
+    elInput.type = "text";
+    elDiv.appendChild(elInput);
+
+    elDivBody.appendChild(elDiv);
 }

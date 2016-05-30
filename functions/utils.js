@@ -174,5 +174,4 @@ function addReviews(story_id) {
                     "POST",
                     story_id
                 );
-
 }

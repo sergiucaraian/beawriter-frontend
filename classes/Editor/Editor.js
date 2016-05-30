@@ -2,6 +2,7 @@ function Editor(objConfig)
 {
     this.objConfig = objConfig;
 }
+
 Editor.prototype = {
 
     elDivContainer: null,
@@ -9,7 +10,9 @@ Editor.prototype = {
     elDivContent: null,
     objEditor: null,
     objConfig: null,
-
+    nStoryID: null,
+    objStory: null,
+    bRequestInProgress: false,
 
     container: function()
     {
@@ -19,6 +22,11 @@ Editor.prototype = {
 
     initialize: function()
     {
+        var self = this;
+        this.nStoryID = getParameterByName("id");
+
+        this.elInputTitle = document.getElementsByClassName("editor-title-input-field");
+
         this.elDivContainer = document.createElement("div");
         this.elDivContainer.classList.add("editor-container");
 
@@ -33,6 +41,57 @@ Editor.prototype = {
         this.objEditor = new Quill(this.elDivContent, this.objConfig);
 
         this.initialize_moodules();
+
+        makeRequest(
+            function(mxResponse)
+            {
+                self.objStory = mxResponse;
+                console.log(self.objStory);
+
+                self.updateStoryLocal();
+
+                setInterval(
+                    function()
+                    {
+                        if(!self.bRequestInProgress)
+                        {
+                            self.bRequestInProgress = true;
+                            makeRequest(
+                                function(mxResponse2)
+                                {
+                                    console.log(mxResponse2);
+                                    self.bRequestInProgress = false;
+                                },
+                                "StoryService.update",
+                                "POST",
+                                {
+                                    "story_id": self.nStoryID,
+                                    "content":
+                                    {
+                                        "title": self.elInputTitle.value,
+                                        "body": self.objEditor.getHTML()
+                                    }
+                                }
+                            );
+                        }
+                    },
+                    10000
+                );
+            },
+            "StoryService.readById",
+            "POST",
+            {
+                "story_id": this.nStoryID
+            }
+        );
+    },
+
+
+    updateStoryLocal: function()
+    {
+        this.elInputTitle.value = this.objStory["title"];
+
+        this.objEditor.setHTML(this.objStory["content"]);
     },
 
 
