@@ -81,7 +81,7 @@ function setLogOut(elem) {
             if(true)
             {
                 //makeRequest(
-                  //  function(mxResponse)
+                    //function(mxResponse)
                     //{
 							setCookie("user_hash", "");
 							elem.innerHTML = "LogIn";
@@ -98,4 +98,71 @@ function setLogOut(elem) {
             }
         }
     )
+}
+
+
+function addReviews(story_id) {
+	
+	var containerDiv = document.getElementById("container-div");
+	
+	
+		makeRequest(
+                    function(mxResponse)
+                    {
+						for (var i = 0; i < mxResponse.length; i++) 
+						{
+							
+						var wrapDiv = document.createElement("div");
+						wrapDiv.classList.add("wrap");
+							
+						var imgPhoto = document.createElement("img");
+						imgPhoto.id = "user_img";
+						imgPhoto.src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHBxKgVDCHbUAXpmGjk0WmmCbm2Fnkpdt3707m3ZcsATS6BPVAKbmb7oM";
+						
+						var divComment = document.createElement("div");
+						divComment.classList.add("comment");
+						divComment.setAttribute("data-owner", "Hidden user");
+						var pComment = document.createElement("p");
+						pComment.innerHTML = mxResponse[i].comment;
+						divComment.appendChild(pComment);
+						var ulElem = document.createElement("ul");
+						ulElem.classList.add("postscript");
+						ulElem.style.listStyleType = "none";
+						var liReview = document.createElement("li");
+						var liButton = document.createElement("li");
+						var liDate = document.createElement("li");
+						liDate.classList.add("date");
+						var textNode = document.createTextNode(mxResponse[i].created_at);
+						liDate.appendChild(textNode);
+						var inputReview = document.createElement("input");
+						inputReview.type = "text";
+						
+						liReview.appendChild(inputReview);
+						
+						var buttonReview = document.createElement("button");
+						buttonReview.id = mxResponse[i].author_id;
+						
+						var buttonTextNode = document.createTextNode("Reward Review");
+						buttonReview.appendChild(buttonTextNode);
+						
+						liButton.appendChild(buttonReview);
+						
+						ulElem.appendChild(liReview);
+						ulElem.appendChild(liButton);
+						ulElem.appendChild(liDate);
+						
+						divComment.appendChild(ulElem);
+						
+						wrapDiv.appendChild(imgPhoto);
+						
+						wrapDiv.appendChild(divComment);	
+
+						containerDiv.appendChild(wrapDiv);
+						}
+                    },
+                    "FeedbackService.readFeedbackResponse",
+                    "POST",
+                    story_id
+                );
+	
 }

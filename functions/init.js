@@ -37,6 +37,7 @@ function init_page_story()
 {
     init_menubar();
     init_editor();
+	addReviews(1);
 }
 
 function init_page_login()
