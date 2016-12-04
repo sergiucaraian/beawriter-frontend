@@ -29,7 +29,7 @@ Dashboard.prototype = {
     initialize: function()
     {
         var self = this;
-
+test;
         // Make requests
 
         makeRequest(
